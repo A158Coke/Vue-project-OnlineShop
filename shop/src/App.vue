@@ -9,6 +9,27 @@
         <div class="search">
           <input type="search" v-model="search" @keyup.enter="sendSearchRequest()" placeholder="Looking for something?">
         </div>
+        <div class="cloud">
+          <div class="snow">
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:15"></span>
+            <span style="--i:17"></span>
+            <span style="--i:18"></span>
+            <span style="--i:13"></span>
+            <span style="--i:14"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:16"></span>
+            <span style="--i:10"></span>
+            <span style="--i:7"></span>
+            <span style="--i:8"></span>
+            <span style="--i:21"></span>
+            <span style="--i:22"></span>
+            <span style="--i:24"></span>
+            <span style="--i:23"></span>
+          </div>
+        </div>
         <nav>
           <ul>
 
@@ -93,19 +114,71 @@ export default {
   background-size: 400%;
   animation: bgmove 20s infinite;
 }
+
 @keyframes bgmove {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
 
+.cloud {
+  position: relative;
+  width: 110px;
+  height: 30px;
+  background: white;
+  border-radius: 100px;
+}
 
+.cloud::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 40px 0 0 20px white;
+  left: 10px;
+  top: -20px;
+}
+
+.snow {
+  position: relative;
+  display: flex;
+  z-index: 1;
+}
+
+.snow span {
+  position: relative;
+  width: 3px;
+  height: 3px;
+  background: white;
+  margin: 0 2px;
+  border-radius: 50px;
+  animation: snowing 5s linear infinite;
+  animation-duration: calc(15s / var(--i));
+}
+
+@keyframes snowing {
+  0% {
+    transform: translateY(0px);
+  }
+
+  70% {
+    transform: translateY(100px) scale(1);
+  }
+
+  100% {
+    transform: translateY(100px) scale(0);
+  }
+}
 
 nav ul {
   list-style: none;
@@ -254,7 +327,4 @@ a:link {
 
   .search input {
     margin-bottom: 10px;
-  } */
-  
-
-</style>
+  } */</style>

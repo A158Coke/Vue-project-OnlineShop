@@ -1,5 +1,5 @@
 <template>
-    <select v-model="selectedCategory">
+    <select class="product-menu" v-model="selectedCategory">
         <option value="">All</option>
         <option v-for="category in categories" :value="category">{{ category }}</option>
     </select>
@@ -87,6 +87,13 @@ export default {
 
 <!-- CSS -->
 <style>
+.product-menu{
+    border-radius: 100px;
+    float: right;
+    font-size: large;
+    display: flex;
+}
+
 .product {
     display: flex;
     flex-wrap: wrap;

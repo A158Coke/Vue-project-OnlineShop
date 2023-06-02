@@ -28,13 +28,18 @@ export default {
   name: "Home",
 };
 </script>
+
+
 <!-- CSS -->
 <style>
+
+
 .home-page {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column; /* Added to stack the content vertically */
+  background-color: white;
 }
 
 .content-wrapper {
