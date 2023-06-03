@@ -1,27 +1,32 @@
 <template>
-    <select class="product-menu" v-model="selectedCategory">
-        <option value="">All</option>
-        <option v-for="category in categories" :value="category">{{ category }}</option>
-    </select>
-    <div class="product">
-        <div v-for=" producto in filteredProductos" :key="producto.id" class="product-card">
-            <!-- <img :src="producto.img" alt="Product Image" class="product-image" /> -->
-            <h2 class="product-name">{{ producto.nombre }}</h2>
-            <h2 class="product-name">{{ producto.categoria }}</h2>
-            <p class="product-description">{{ producto.descripcion }}</p>
-            <div class="product-price">{{ producto.precio }} $</div>
-            <button class="add-to-cart-button" @click="addToCart(producto)">Add to Cart</button>
-            <p></p>
-            <button class="add-to-cart-button" @click="gotoDetail(producto)">Check Detail</button>
-        </div>
+    <div class="Productos">
+        <transition appear name="animate__animated router-animation" enter-active-class="animate__zoomIn animate__delay-1s">
+            <div>
+                <select class="product-menu" v-model="selectedCategory">
+                    <option value="">All</option>
+                    <option v-for="category in categories" :value="category">{{ category }}</option>
+                </select>
+                <div class="product">
+                    <div v-for="producto in filteredProductos" :key="producto.id" class="product-card">
+                        <h2 class="product-name">{{ producto.nombre }}</h2>
+                        <h2 class="product-category">{{ producto.categoria }}</h2>
+                        <p class="product-description">{{ producto.descripcion }}</p>
+                        <div class="product-price">{{ producto.precio }} $</div>
+                        <button class="add-to-cart-button" @click="addToCart(producto)">Add to Cart</button>
+                        <p></p>
+                        <button class="add-to-cart-button detail-button" @click="gotoDetail(producto)">Check Detail</button>
+                    </div>
+                </div>
+            </div>
+        </transition>
     </div>
 </template>
-  
   
 <script>
 //Importar los modulos
 import Cart from "./Cart.vue";
 import axios from "axios";
+import "animate.css";
 //export default entender como un import de router(podemos encontrar en el router.js)
 export default {
     name: "Productos",
@@ -33,7 +38,7 @@ export default {
         return {
             Productos: [],
             selectedCategory: "",
-            categorias: [],
+            categories: [],
         };
     },
     //Metodos
@@ -41,17 +46,17 @@ export default {
         //Dirigir a la vista detail y lleva un parametro(id)
         gotoDetail(producto) {
             this.$router.push({
-                name: 'Detail',
-                params: { id: producto.id }
+                name: "Detail",
+                params: { id: producto.id },
             });
         },
-        //Añadir el producto seleccionado al carrito 
+        //Añadir el producto seleccionado al carrito
         addToCart(producto) {
             this.$router.push({
-                name: 'Cart',
-                params: { id: producto.id }
-            })
-        }
+                name: "Cart",
+                params: { id: producto.id },
+            });
+        },
     },
     //Metodo para separar los productos por categoria
     computed: {
@@ -65,15 +70,18 @@ export default {
             }
         },
     },
-    //Metodo creted, una vez que instancia de vue ya sido creado. Metodo created es el primero metodo que lo ejecuta. 
+    //Metodo creted, una vez que instancia de vue ya sido creado. Metodo created es el primero metodo que lo ejecuta.
     created() {
-        //Request get al node backend 
-        axios.get("http://localhost:3000/Producto")
+        //Request get al node backend
+        axios
+            .get("http://localhost:3000/Producto")
             .then((response) => {
                 //this.Productos es un array de front. Recibir todos los valores que viene del backend y lo meta al Productos[]
                 this.Productos = response.data;
                 // create an array of unique categories from the products
-                const uniqueCategories = [...new Set(this.Productos.map((p) => p.categoria))];
+                const uniqueCategories = [
+                    ...new Set(this.Productos.map((p) => p.categoria)),
+                ];
                 this.categories = [...uniqueCategories];
             })
             //Control de errores
@@ -83,10 +91,33 @@ export default {
     },
 };
 </script>
-
-
-<!-- CSS -->
+  
+  <!-- CSS -->
 <style>
+.Productos {
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    background-image: linear-gradient(125deg, rgb(31, 167, 167), #23b08d, #adadad, pink);
+    background-size: 400%;
+    animation: bgmove 20s infinite;
+    background-position: 100%;
+}
+
+@keyframes bgmove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .product-menu {
     border-radius: 100px;
     float: right;
@@ -117,11 +148,11 @@ export default {
     box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
 }
 
-
 .product {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
 }
 
 .product select {
@@ -140,6 +171,7 @@ export default {
     width: 100%;
     max-width: 200px;
     float: right;
+
 }
 
 .product select:hover {
@@ -222,3 +254,4 @@ export default {
     background-color: #0288d1;
 }
 </style>
+  

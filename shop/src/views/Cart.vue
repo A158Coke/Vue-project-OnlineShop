@@ -1,28 +1,33 @@
 <template>
   <div class="cart">
-    <h1 class="cart-title">Shopping Cart</h1>
-    <ul class="cart-list">
-      <div class="product">
-        <div v-for="producto in Productos" :key="producto.id" class="product-card">
-          <h2 class="product-name">{{ producto.nombre }}</h2>
-          <h2 class="product-price">{{ producto.precio }}$</h2>
+    <transition appear name="animate__animated router-animation" enter-active-class="animate__zoomIn animate__delay-1s">
+      <div>
+        <h1 class="cart-title">Shopping Cart</h1>
+        <ul class="cart-list">
+          <div class="product">
+            <div v-for="producto in Productos" :key="producto.id" class="product-card">
+              <h2 class="product-name">{{ producto.nombre }}</h2>
+              <h2 class="product-price">{{ producto.precio }}$</h2>
+            </div>
+          </div>
+        </ul>
+        <div v-if="Productos.length === 0" class="cart-empty">Your cart is empty.</div>
+        <div v-else>
+          <div class="cart-total">Total: {{ cartTotal }} $</div>
+          <div class="cart-actions">
+            <button class="checkout-button" @click="checkout()"><router-link to="/Cart/:id">Checkout</router-link></button>
+          </div>
         </div>
+        <button v-if="Productos.length === 0" class="pick-button" @click="goToProducto()">Let's pick something for your cart!</button>
       </div>
-    </ul>
-    <div v-if="Productos.length === 0" class="cart-empty">Your cart is empty.</div>
-    <div v-else>
-      <div class="cart-total">Total: {{ cartTotal }} $</div>
-      <div class="cart-actions">
-        <button class="checkout-button" @click="checkout()"><router-link to="/Cart/:id">Checkout</router-link></button>
-      </div>
-    </div>
-    <button v-if="Productos.length === 0" class="pick-button" @click="goToProducto()">Let's pick something for your cart!</button>
+    </transition>
   </div>
 </template>
 
 <script>
 //Importar axios 
 import axios from 'axios';
+import "animate.css";
 //export default entender como un import de router(podemos encontrar en el router.js)
 export default {
   name: 'Cart',

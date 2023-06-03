@@ -33,7 +33,7 @@ export default {
 
     created() {
         // Aconseguir el id de usuario
-        const id = '19';
+        const id = '4';
         // Get request al node backend
         axios.get('http://localhost:3000/usuario/' + id)
             .then((response) => {
@@ -57,6 +57,7 @@ export default {
     background-image: linear-gradient(125deg, rgb(31, 167, 167), #23b08d, #adadad, pink);
     background-size: 400%;
     animation: bgmove 20s infinite;
+    background-position: 100%;
 }
 
 .perfil-header {
