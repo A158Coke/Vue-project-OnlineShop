@@ -16,7 +16,7 @@
         <button class="checkout-button" @click="checkout()"><router-link to="/Cart/:id">Checkout</router-link></button>
       </div>
     </div>
-    <button v-if="Productos.length === 0" class="pick-button" @click="goToProducto()">Let's pick something for our cart!</button>
+    <button v-if="Productos.length === 0" class="pick-button" @click="goToProducto()">Let's pick something for your cart!</button>
   </div>
 </template>
 

@@ -87,12 +87,36 @@ export default {
 
 <!-- CSS -->
 <style>
-.product-menu{
+.product-menu {
     border-radius: 100px;
     float: right;
-    font-size: large;
     display: flex;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 20px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+.product-menu:hover {
+    border-color: #999;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.product-menu:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+}
+
 
 .product {
     display: flex;
