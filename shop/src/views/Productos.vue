@@ -2,11 +2,13 @@
     <div class="Productos">
         <transition appear name="animate__animated router-animation" enter-active-class="animate__zoomIn animate__delay-1s">
             <div>
-                <select class="product-menu" v-model="selectedCategory">
-                    <option disabled value="">Select a category</option>
-                    <option value="">All</option>
-                    <option v-for="category in categories" :value="category">{{ category }}</option>
-                </select>
+                <div class="menu-bar">
+                    <select class="product-menu" v-model="selectedCategory">
+                        <option disabled value="">Select a category</option>
+                        <option value="">All</option>
+                        <option v-for="category in categories" :value="category">{{ category }}</option>
+                    </select>
+                </div>
                 <div class="product">
                     <div v-for="producto in filteredProductos" :key="producto.id" class="product-card">
                         <h2 class="product-name">{{ producto.nombre }}</h2>
@@ -22,7 +24,7 @@
         </transition>
     </div>
 </template>
-  
+
 <script>
 //Importar los modulos
 import Cart from "./Cart.vue";
@@ -92,8 +94,8 @@ export default {
     },
 };
 </script>
-  
-  <!-- CSS -->
+
+<!-- CSS -->
 <style>
 .Productos {
     min-height: 100vh;
@@ -136,8 +138,16 @@ export default {
     background-position: right center;
     background: transparent;
     padding-right: 20px;
+    overflow: auto;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+.menu-bar {
+    position: sticky;
+    top: 5vh;
+}
+
+
 
 .product-menu:hover {
     border-color: #999;
@@ -161,7 +171,7 @@ export default {
     padding: 10px;
     font-size: 14px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     background-color: #fff;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
     outline: none;
@@ -175,6 +185,7 @@ export default {
     float: right;
 
 }
+
 
 .product select:hover {
     background-position: center right 10px;
@@ -256,4 +267,3 @@ export default {
     background-color: #0288d1;
 }
 </style>
-  
