@@ -15,10 +15,12 @@
         <div v-else>
           <div class="cart-total">Total: {{ cartTotal }} $</div>
           <div class="cart-actions">
-            <button class="checkout-button" @click="checkout()"><router-link to="/Cart/:id">Checkout</router-link></button>
+            <button class="checkout-button" @click="checkout()"><router-link
+                to="/Cart/:id">Checkout</router-link></button>
           </div>
         </div>
-        <button v-if="Productos.length === 0" class="pick-button" @click="goToProducto()">Let's pick something for your cart!</button>
+        <button v-if="Productos.length === 0" class="pick-button" @click="goToProducto()">Let's pick something for your
+          cart!</button>
       </div>
     </transition>
   </div>
@@ -31,7 +33,7 @@ import "animate.css";
 //export default entender como un import de router(podemos encontrar en el router.js)
 export default {
   name: 'Cart',
-   //Aqui inicializamos las variables
+  //Aqui inicializamos las variables
   data() {
     return {
       selectedProduct: {},
@@ -83,8 +85,15 @@ export default {
 
 <style scoped>
 .cart {
-  background-color: transparent;
-  padding: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  min-height: 100vh;
+  background-image: linear-gradient(125deg, rgb(31, 167, 167), #23b08d, #adadad, pink);
+  background-size: 400%;
+  animation: bgmove 20s infinite;
 }
 
 .cart-title {

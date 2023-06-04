@@ -35,7 +35,7 @@
 
             <li class="category-menu">
               <button class="dropdown-btn"><router-link to="/About">About us</router-link></button>
-              <button class="dropdown-btn"><router-link to="/Productos">Productos</router-link></button>
+              <button class="dropdown-btn"><router-link to="/Productos">Products</router-link></button>
             </li>
             <li>
               <router-link to="/Cart/:id"><img id="log" src="../img/cart.png" alt="?"></router-link>
@@ -101,7 +101,6 @@ export default {
 }
 
 #nav {
-  background-color: #201f1f;
   color: #fff;
   padding: 10px;
   display: flex;
@@ -264,10 +263,12 @@ a:link {
   border: none;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
+  font-size: 3vh;
 }
 
 .dropdown-btn:hover {
   background-color: rgba(213, 56, 56, 0.793);
+  border-radius: 20px;
 }
 
 
@@ -327,4 +328,5 @@ a:link {
 
   .search input {
     margin-bottom: 10px;
-  } */</style>
+  } */
+</style>
