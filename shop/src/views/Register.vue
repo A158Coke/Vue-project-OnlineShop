@@ -87,16 +87,21 @@ export default {
 <style>
 .Register {
     position: relative;
-    width: 100%;
     height: 700px;
     background-color: transparent;
     border: 2px solid rgba(blue);
-    border-radius: 20px;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+    background-image: linear-gradient(125deg, rgb(31, 167, 167), #23b08d, #adadad, pink);
+    background-size: 400%;
+    animation: bgmove 20s infinite;
+    background-position: 100%;
 }
 
 .Register .form-box {
@@ -118,6 +123,13 @@ export default {
     height: 50px;
     border-bottom: 2px solid grey;
     margin: 30px 0
+}
+
+.input-box input {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    font-size: large;
 }
 
 .input-box bel {
@@ -180,11 +192,5 @@ export default {
     top: -50px;
     left: calc(50% - 50px);
     transition: all 0.3s ease-in-out;
-}
-
-input {
-    height: 100%;
-    width: 100%;
-    font-size: large;
 }
 </style>

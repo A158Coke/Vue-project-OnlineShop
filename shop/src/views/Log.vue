@@ -101,15 +101,19 @@ export default {
 <style>
 .Log {
   position: relative;
-  width: 100%;
   height: 700px;
-  background-color: transparent;
-  border: 2px solid rgba(blue);
+  background: transparent;
   backdrop-filter: blur(20px);
-  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  background-image: linear-gradient(125deg, rgb(31, 167, 167), #23b08d, #adadad, pink);
+  background-size: 400%;
+  animation: bgmove 20s infinite;
+  background-position: 100%;
 }
 
 .Log .form-box {
@@ -117,20 +121,15 @@ export default {
   padding: 40px;
 }
 
-.form-box h2 {
-  font-size: 2em;
-  color: black;
-  position: relative;
-  text-align: center;
-  align-items: center;
-}
-
 .input-box {
   position: relative;
   width: 100%;
   height: 50px;
-  border-bottom: 2px solid grey;
   margin: 30px 0;
+}
+
+.input-box input {
+  background: transparent;
 }
 
 .input-box bel {
@@ -138,7 +137,7 @@ export default {
   top: 50%;
   left: 5px;
   transform: translateY(-50%);
-  font-size: 1ems;
+  font-size: 1em;
   color: grey;
   font-weight: 500;
   pointer-events: none;
@@ -193,10 +192,5 @@ export default {
   top: -50px;
   left: calc(50% - 50px);
   transition: all 0.3s ease-in-out;
-}
-
-input {
-  height: 100%;
-  width: 100%;
 }
 </style>
