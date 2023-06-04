@@ -84,7 +84,7 @@ export default {
 </script>
 
 <!-- CSS -->
-<style>
+<style scoped>
 .Register {
     position: relative;
     height: 700px;

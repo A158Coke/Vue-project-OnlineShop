@@ -48,7 +48,7 @@ export default {
 
 
 </script>
-  
+
 <style scoped>
 .perfil {
     min-height: 100vh;

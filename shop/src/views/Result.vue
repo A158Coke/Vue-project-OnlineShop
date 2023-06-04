@@ -75,7 +75,7 @@ export default {
 
 
 <!-- CSS -->
-<style>
+<style scoped>
 .result {
     display: flex;
     flex-wrap: wrap;

@@ -96,7 +96,7 @@ export default {
 </script>
 
 <!-- CSS -->
-<style>
+<style scoped>
 .Productos {
     min-height: 100vh;
     padding: 20px;

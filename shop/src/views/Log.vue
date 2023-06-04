@@ -98,7 +98,7 @@ export default {
 </script>
 
 <!-- CSS -->
-<style>
+<style scoped>
 .Log {
   position: relative;
   height: 700px;

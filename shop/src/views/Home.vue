@@ -29,7 +29,7 @@ export default {
 
 
 <!-- CSS -->
-<style>
+<style scoped>
 .home-page {
   display: flex;
   align-items: center;

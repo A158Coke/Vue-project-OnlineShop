@@ -60,7 +60,7 @@ export default {
 };
 </script>
   
-<style>
+<style scoped>
 .Detail {
   min-height: 100vh;
   padding: 20px;
