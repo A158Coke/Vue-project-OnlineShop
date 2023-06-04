@@ -2,7 +2,16 @@
   <div class="aboutUs">
     <div class="aboutUs-Header">
       <h1>Welcome!</h1>
-      <p>Welcome to Store-IC, the brainchild of Isaac and Chen, two passionate IT programming students at CIDE. As they delved into the world of technology during their studies, an idea started to take shape – a technology store that would revolutionize the way people experience the latest gadgets and devices. Store-IC represents their first startup venture, fueled by their expertise, creativity, and a deep passion for all things tech. At Store-IC, we offer a carefully curated selection of cutting-edge technology products, ranging from iPhones to PS4 consoles and beyond. Our mission is to empower your tech journey by providing access to the latest innovations that enhance your digital lifestyle. Isaac and Chen have poured their heart and soul into this project, meticulously handpicking each product and ensuring that every customer receives top-notch service and support. Step into Store-IC and embark on an exciting technological adventure where possibilities are endless. Let us be your trusted partner in the world of technology.</p>
+      <p>Welcome to Store-IC, the brainchild of Isaac and Chen, two passionate IT programming students at CIDE. As they
+        delved into the world of technology during their studies, an idea started to take shape – a technology store that
+        would revolutionize the way people experience the latest gadgets and devices. Store-IC represents their first
+        startup venture, fueled by their expertise, creativity, and a deep passion for all things tech. At Store-IC, we
+        offer a carefully curated selection of cutting-edge technology products, ranging from iPhones to PS4 consoles and
+        beyond. Our mission is to empower your tech journey by providing access to the latest innovations that enhance
+        your digital lifestyle. Isaac and Chen have poured their heart and soul into this project, meticulously
+        handpicking each product and ensuring that every customer receives top-notch service and support. Step into
+        Store-IC and embark on an exciting technological adventure where possibilities are endless. Let us be your trusted
+        partner in the world of technology.</p>
       <p class="description">Created by Chen & Isaac</p>
     </div>
     <div class="map-wrapper">
@@ -10,23 +19,27 @@
     </div>
     <div class="content">
       <h2>Our Mission</h2>
-      <p class="mission">At our company, we strive to deliver innovative technology products and services that empower our customers and enhance their digital experiences.</p>
+      <p class="mission">At our company, we strive to deliver innovative technology products and services that empower our
+        customers and enhance their digital experiences.</p>
       <h2>Why Choose Us?</h2>
       <ul class="features">
         <li>
           <i class="fas fa-rocket"></i>
           <span class="feature-title">State-of-the-Art Technology</span>
-          <p class="feature-description">We stay at the forefront of the tech industry, leveraging the latest advancements to provide you with exceptional solutions.</p>
+          <p class="feature-description">We stay at the forefront of the tech industry, leveraging the latest advancements
+            to provide you with exceptional solutions.</p>
         </li>
         <li>
           <i class="fas fa-users"></i>
           <span class="feature-title">Expert Team</span>
-          <p class="feature-description">Our team of experienced professionals is passionate about technology and dedicated to delivering outstanding results.</p>
+          <p class="feature-description">Our team of experienced professionals is passionate about technology and
+            dedicated to delivering outstanding results.</p>
         </li>
         <li>
           <i class="fas fa-hand-holding-usd"></i>
           <span class="feature-title">Affordable Pricing</span>
-          <p class="feature-description">We believe that technology should be accessible to everyone, which is why we offer competitive and budget-friendly pricing.</p>
+          <p class="feature-description">We believe that technology should be accessible to everyone, which is why we
+            offer competitive and budget-friendly pricing.</p>
         </li>
       </ul>
     </div>
@@ -56,15 +69,15 @@ export default {
 
   //Los metodos
   methods: {
-     /*
-     loadGoogleMapsAPI()是用来加载Google Maps API。它创建了一个<script>元素，并将其添加到HTML文档的头部。
-     script.src属性指定了Google Maps API的URL，其中包含你的API密钥（需要替换为你自己的有效API密钥）和回调函数initMap。
-     当脚本加载完成时，Promise将被解析（resolve），表示Google Maps API已加载完成。 如果加载出错，Promise将被拒绝（reject）。
+    /*
+    loadGoogleMapsAPI()是用来加载Google Maps API。它创建了一个<script>元素，并将其添加到HTML文档的头部。
+    script.src属性指定了Google Maps API的URL，其中包含你的API密钥（需要替换为你自己的有效API密钥）和回调函数initMap。
+    当脚本加载完成时，Promise将被解析（resolve），表示Google Maps API已加载完成。 如果加载出错，Promise将被拒绝（reject）。
 
-     Es para cargar el google map API, crea un elemento script y lo añadir al head de html doc. 
-     script.src atributo indica el url de Google map api, incluye el api pass y return function initMap
-     Cuando el script completa la carga, el Promise va ser resolvido para presentar el API ya esta cargada. Si hay error, el Promise va ser denegada.
-    */
+    Es para cargar el google map API, crea un elemento script y lo añadir al head de html doc. 
+    script.src atributo indica el url de Google map api, incluye el api pass y return function initMap
+    Cuando el script completa la carga, el Promise va ser resolvido para presentar el API ya esta cargada. Si hay error, el Promise va ser denegada.
+   */
     loadGoogleMapsAPI() {
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
@@ -112,16 +125,38 @@ export default {
   color: rgb(161, 66, 66);
   font-weight: 500;
   font-family: MontSerrat;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  background-image: linear-gradient(125deg, rgb(31, 167, 167), #23b08d, #adadad, pink);
+  background-size: 400%;
+  animation: bgmove 20s infinite;
+  background-position: 100%;
+}
+
+@keyframes bgmove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .aboutUs-Header {
-  position: absolute,top;
+  position: absolute, top;
   text-align: center;
   padding: 20px;
   background-color: #f5f5f5;
   margin-bottom: 20px;
   animation: fadeIn 1s;
   box-shadow: 2.5px 0px 5px black;
+  border-radius: 20px;
 }
 
 .aboutUs h1 {
@@ -143,6 +178,7 @@ export default {
   height: 400px;
   margin-bottom: 2%;
   margin-top: 2%;
+  border-radius: 20px;
 }
 
 #map {
@@ -151,12 +187,13 @@ export default {
 }
 
 .content {
-  position: absolute,bottom;
+  position: absolute, bottom;
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 40px;
   background-color: #f5f5f5;
+  border-radius: 20px;
 }
 
 .content h2 {
