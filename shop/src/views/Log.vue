@@ -122,14 +122,18 @@ export default {
 }
 
 .input-box {
-  position: relative;
-  width: 100%;
-  height: 50px;
-  margin: 30px 0;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid grey;
+    margin: 30px 0
 }
 
 .input-box input {
-  background: transparent;
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    font-size: large;
 }
 
 .input-box bel {

@@ -109,14 +109,6 @@ export default {
     padding: 40px;
 }
 
-.form-box h2 {
-    font-size: 2em;
-    color: black;
-    position: relative;
-    text-align: center;
-    align-items: center;
-}
-
 .input-box {
     position: relative;
     width: 100%;
