@@ -3,6 +3,7 @@
         <transition appear name="animate__animated router-animation" enter-active-class="animate__zoomIn animate__delay-1s">
             <div>
                 <select class="product-menu" v-model="selectedCategory">
+                    <option disabled value="">Select a category</option>
                     <option value="">All</option>
                     <option v-for="category in categories" :value="category">{{ category }}</option>
                 </select>
@@ -95,7 +96,7 @@ export default {
   <!-- CSS -->
 <style>
 .Productos {
-    height: 100%;
+    min-height: 100vh;
     padding: 20px;
     text-align: center;
     background-image: linear-gradient(125deg, rgb(31, 167, 167), #23b08d, #adadad, pink);
@@ -133,6 +134,7 @@ export default {
     -moz-appearance: none;
     background-repeat: no-repeat;
     background-position: right center;
+    background: transparent;
     padding-right: 20px;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }

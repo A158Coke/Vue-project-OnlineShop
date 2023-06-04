@@ -51,7 +51,7 @@ export default {
   
 <style scoped>
 .perfil {
-    height: 100%;
+    min-height: 100vh;
     padding: 20px;
     text-align: center;
     background-image: linear-gradient(125deg, rgb(31, 167, 167), #23b08d, #adadad, pink);
