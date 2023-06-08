@@ -20,7 +20,7 @@ const connection = mysql.createConnection({
   user: 'Program',
   password: 'Cide2020',
   database: 'LDM',
-  autocommit: true
+  autocommit: true,
 });
 
 //Manejar el request  post de front(LOG IN)
@@ -54,9 +54,9 @@ app.post('/LogIn', (req, res) => {
 });
 
 //Manejar post request que viene el front(Registro)
-router.post('/Register', (req, res) => {
+app.post('/Register', (req, res) => {
   //3 constantes para guardar los valores que viene el front. 
-  const { nombre, email, pass } = req.body;
+  const { nombre, email, pass } = req.body; // request tienes un cuerpo, fichero json. contiene los datos. REQ.body es un array. 
   //Los imprime
   console.log('req.body:', req.body);
   //sentencia de sql. para introducir los valores al base de datos 
@@ -126,7 +126,7 @@ app.get('/Cart/:id', (req, res) => {
 
 //Manejar el request post que viene el front(Carrito.Checkout)
 app.post('/Checkout', (req, res) => {
-  //2 sentencias. 
+  //2 sentencias sql. 
   //La primera para eliminar la tabla carrito, la segunda para volver crearlo
   //(BOZ no puedo eliminar todos los datos que contiene la table. Unica forma es eliminar la table)
   const sql1 = 'DROP TABLE IF EXISTS carrito';
@@ -149,7 +149,7 @@ app.post('/Checkout', (req, res) => {
       return;
     }
     //Ejecutar la consulta 2
-    connection.query(sql2, (error, result2) => {
+    connection.query(sql2, (error) => {
       if (error) {
         console.error(error);
         res.status(500).send('Error creating carrito table');

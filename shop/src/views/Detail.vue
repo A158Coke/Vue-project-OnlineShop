@@ -1,9 +1,9 @@
 <template>
   <div class="Detail">
-    <img :src="Productos.img" alt="Product Image(not showing?)" class="product-image" />
-    <h2>{{ Productos.nombre }}</h2>
-    <p>{{ Productos.descrip }}</p>
-    <p>{{ Productos.precio }} $</p>
+    <img :src="Producto.img" alt="Product Image(not showing?)" class="product-image" />
+    <h2>{{ Producto.nombre }}</h2>
+    <p>{{ Producto.descrip }}</p>
+    <p>{{ Producto.precio }} $</p>
     <button class="add-to-cart-button" @click="addToCart(selectedProduct)">Add to Cart</button>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       selectedProduct: {},
-      Productos: {}
+      Producto: {}
     };
 
   },
@@ -39,8 +39,8 @@ export default {
     //request get al node backend. Lleva un parametro id
     axios.get('http://localhost:3000/detail/' + id)
       .then(response => {
-        //this.Productos es un array de front. Recibir todos los valores que viene el backend y lo meta al Productos[]
-        this.Productos = response.data;
+        //this.Producto es un object de front. Recibir el valor que viene el backend y lo meta al Producto{}
+        this.Producto = response.data;
         console.log(this.Productos)
       })
       .catch(error => {
