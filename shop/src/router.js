@@ -7,6 +7,7 @@ import Log from "./views/Log.vue";
 import Cart from "./views/Cart.vue";
 import Detail from "./views/Detail.vue";
 import Perfil from "./views/Perfil.vue";
+import Result from "./views/Result.vue";
 
 const routes = [
   {
@@ -48,13 +49,19 @@ const routes = [
     path: "/Perfil/:id",
     name: "Perfil",
     component: Perfil,
+  },
+  {
+    path: "/Result/:search",
+    name: "Result",
+    component: Result,
   }
+
 
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes
+  history: createWebHistory(),
+  routes
 });
 
 export default router;

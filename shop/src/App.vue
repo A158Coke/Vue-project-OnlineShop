@@ -7,7 +7,7 @@
           <router-link to="/"><img id="logo" src="../img/IC-logo.png" alt="?"></router-link>
         </h1>
         <div class="search">
-          <input type="search" v-model="search" @keyup.enter="sendSearchRequest()" placeholder="Looking for something?">
+          <input type="search" v-model="search" @keyup.enter="SearchProduct()" placeholder="Looking for something?">
         </div>
         <div class="cloud">
           <div class="snow">
@@ -71,18 +71,12 @@ export default {
 
   //Metodos
   methods: {
-    //Enviar un get request al node backend para manejarlo. Lleva un parametro(nombre)
-    sendSearchRequest() {
-      axios.get("http://localhost:3000/Search", { params: { search: this.search } })
-        .then((response) => {
-          console.log(response.data);
-          this.$router.push({
-            name: "Result"
-          });
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+    //Dirigir al vista Result y mostrar los resultado allí
+    SearchProduct() {
+      this.$router.push({
+        name: "Result",
+        params: { search: this.search },
+      });
     },
   },
 };

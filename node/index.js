@@ -206,12 +206,11 @@ app.get('/detail/:id', (req, res) => {
 });
 
 //Manejar el request post de front (Search, esta en app.vue)
-app.post('/Search/:nombre', (req, res) => {
+app.get('/Search/:nombre', (req, res) => {
   //Crear un constante nombre(back.const) para guardar el valor de nombre(front.param)
   const nombre = req.params.nombre
-  const search = req.body // {}=objeto , []=array 
   const sql = 'SELECT * FROM producto WHERE producto.nombre LIKE ?';
-  const values = [`%${search}%`];
+  const values = [`%${nombre}%`];
   //Ejecutar la consulta
   connection.query(sql, values, (error, results) => {
     //Control de errores
