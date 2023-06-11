@@ -42,13 +42,17 @@ app.post('/LogIn', (req, res) => {
     //Imprimir en la console el resultado de comparacion. Si password que introduce no es igual que el que tiene en BD, imprimir false. Si no True.  
     console.log(password == results[0].pass)
     //Comparacion de password, si el condicion es True: imprimir los en la consola y enviar un String 'Yes' al front como un res.data. Si no imprimir 'Pass not found'
-    if (password == results[0].pass) {
-      console.log(password, results[0].pass)
-      res.send('Yes');
-    }
-    else {
+    if (results.length === 0) {
       res.status(404).json({ redirect: null });
-      console.log('Password not found')
+      console.log('User not found');
+    } else {
+      if (password === results[0].pass) {
+        console.log(password, results[0].pass);
+        res.send('Yes');
+      } else {
+        res.status(404).json({ redirect: null });
+        console.log('Password incorrect');
+      }
     }
   })
 });

@@ -13,7 +13,7 @@
           <div class="remember-forgot">
             <label><input type="checkbox">Remember me</label>
           </div>
-          <button type="submit" class="btn" @click="goToPerfil({ id: 19 })">LOG IN</button>
+          <button type="submit" class="btn" @click="goToPerfil()">LOG IN</button>
           <div class="login-register">
             <p>Don't have a account? <a @click="goToRegister()" class="register-link">Register</a></p>
           </div>
@@ -36,50 +36,33 @@ export default {
     return {
       email: '',
       password: '',
-      usuario: {}
+      usuario: {},
+      id: "",
     }
   },
 
   methods: {
     //metodo para ir al perfil y hace comparacion en el back(aunque estan comentado el codigo porque hay error)
-    goToPerfil(usuario) {
-      this.$router.push({
-        name: 'Perfil',
-        params: { id: usuario.id }
-      });
+    goToPerfil() {
+      axios.post('http://localhost:3000/LogIn', {
+        email: this.email,
+        password: this.password
+      })
+        .then((response) => {
+          console.log('Response received:', response.data);
+          if (response.data == 'Yes') {
+            this.$router.push({
+              name: 'Perfil',
+              params: {
+                id: 1 // 替换为实际的参数值
+              }
+            });
+          }
+        })
+        .catch((error) => {
+          console.log('Error occurred:', error);
+        });
     },
-
-
-    // axios.post('http://localhost:3000/LogIn', {
-    //   email: this.email,
-    //   password: this.password
-    // }).then(response => {
-    //   console.log(response.data);
-    //   if (response.data == 'Yes') {
-    //     console.log('Lets go Perfil')
-
-    // router.beforeEach(async (to, from) => {
-    // if (
-    // make sure the user is authenticated
-    // !isAuthenticated &&
-    // ❗️ Avoid an infinite redirect
-    // to.name !== 'Log'
-    // ) {
-    // redirect the user to the login page
-    // return { name: 'Perfil' }
-    // }
-    // })
-    //   } else {
-    //     // 处理登录失败的情况，例如显示错误消息等
-    //     alert(error)
-    //   }
-
-    // }).
-    //   // handle other responses
-    //   catch(error => {
-    //     console.log(error);
-    //     // handle error
-    //   });
 
     //Dirigir a la vista Registro
     goToRegister() {
@@ -88,13 +71,7 @@ export default {
       });
     }
   },
-
-
-
 }
-
-
-
 </script>
 
 <!-- CSS -->
@@ -122,18 +99,18 @@ export default {
 }
 
 .input-box {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    border-bottom: 2px solid grey;
-    margin: 30px 0
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid grey;
+  margin: 30px 0
 }
 
 .input-box input {
-    background: transparent;
-    height: 100%;
-    width: 100%;
-    font-size: large;
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  font-size: large;
 }
 
 .input-box bel {

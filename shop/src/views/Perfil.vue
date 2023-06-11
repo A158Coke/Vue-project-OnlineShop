@@ -33,7 +33,7 @@ export default {
 
     created() {
         // Aconseguir el id de usuario
-        const id = '4';
+        const id = this.$route.params.id;
         // Get request al node backend
         axios.get('http://localhost:3000/usuario/' + id)
             .then((response) => {
